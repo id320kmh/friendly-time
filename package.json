@@ -2,6 +2,9 @@
   "name": "friendly-time",
   "version": "0.0.1",
   "description": "friendly-time",
+  "engines": {
+    "node": "5.9.1"
+  },
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -9,6 +12,10 @@
   "author": "alex.inflexible",
   "dependencies": {
     "lowdb": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/id320kmh/friendly-time"
   },
   "keywords": [
     "node",
