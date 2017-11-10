@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="css/app.css" >
+
+    <title>friendlyTime</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="libs/moment.min.js"></script>
+    <script type="text/javascript" src="libs/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="libs/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
+</head>
+
+<body>
+<!--<script>const events = '{{code}}';</script>-->
+
+<!--<script>console.log(events);</script>-->
+
+    <div id="container"></div>
+
+    <script id="hello-screen-template" type="text/template">
+      <div style="padding:25px 20% 0 20%; color: #000">
+        <h1 id="title">Friendly Time App</h1>
+      </div>
+      <div id="logo"></div>
+      <div class="buttonContainer">
+          <button type="button" class="btn btn-primary btn-md" id="buttonEvents">Текущие мероприятия: <span>0</span></button>
+      </div>
+      <div class="buttonContainer">
+          <button type="button" class="btn btn-primary btn-md" id="buttonAdd">Создать мероприятие</button>
+      </div>
+    </script><!--  end helloscreenTamplate  -->
+
+    <script id="addEvent-screen-template" type="text/template">
+        <div id="addNewEvent-container">
+
+            <div class="form-group row">
+                <label for="example-partyName-input" class="col-2 col-form-label">Название мероприятия:</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" value="friendly party" id="example-partyName-input">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="example-nameBos-input" class="col-2 col-form-label">Ваше имя:</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" value="какой-то парень" id="example-nameBos-input">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="example-place-input" class="col-2 col-form-label">Предполагаемое место:</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" value="рыгаловка тры дубка" id="example-place-input">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Дата/Время:</label>
+                <div class='input-group date' id='datetimepicker2'>
+                    <input type='text' class="form-control" id="example-datetime-input"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group row" style="margin-top:40px;">
+                <div class="buttonContainer">
+                    <button type="button" style="background-color: #fff !important; color:#000" class="btn btn-primary btn-md" id="createEventButton">СОЗДАТЬ</button>
+                </div>
+            </div>
+            <div class="form-group row" style="margin-top:30px;">
+                <div class="buttonContainer" style="border:1px solid yellow">
+                    <button type="button" style="background-color: #00137F !important; color:yellow" class="btn btn-primary btn-md" id="hrenVamButton">ХРЕН ВАМ А НЕ ВСТРЕЧА</button>
+                </div>
+            </div>
+
+        </div>
+    </script> <!--  end addNewEventTemplate  -->
+
+    <script id="showEvents-screen-template" type="text/template">
+        <div id="eventsContainer">
+            <div id="eventsInnerContainer">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Мероприятие</th>
+                            <th>Инициатор</th>
+                            <th>Место</th>
+                            <th>Дата/Время</th>
+                            <th>Участники</th>
+                            <th>Принять участие</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventsList">
+
+                    </tbody>
+                </table>
+            </div>
+            <div id="backButton"></div>
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header" style="border-bottom: none !important;"><button class="close" type="button" data-dismiss="modal">×</button>
+                            <h4 class="modal-title">Укажите свое имя</h4>
+                        </div>
+
+                        <div class="col-10 modal-body">
+                            <input class="form-control" type="text" value="какой-то парень" id="example-newMember-input">
+                        </div>
+
+                        <div class="modal-footer" style="border-top: none !important;">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Все-таки хрена</button>
+                            <button class="btn btn-primary" id="willButtonSave" data-dismiss="modal">Точно буду!!!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script><!--  end showEventsscreenTamplate  -->
+
+<script type="text/javascript" src="libs/textFit.min.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
